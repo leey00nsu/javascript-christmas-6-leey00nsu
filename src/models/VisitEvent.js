@@ -1,4 +1,5 @@
 import InputValidator from '../validator/InputValidator.js';
+import Menu from './Menu.js';
 
 class VisitEvent {
   #date;
@@ -6,13 +7,22 @@ class VisitEvent {
   #menus;
 
   constructor(date) {
-    this.validate(date);
+    this.#validate(date);
     this.#date = date;
+    this.#menus = [];
   }
 
-  validate(date) {
-    InputValidator.isInteger(date);
-    InputValidator.isInRange(date, 1, 31);
+  #validate(date) {
+    InputValidator.isDateInteger(date);
+    InputValidator.isDateInRange(date);
+  }
+
+  addMenu(menuName, menuQuantity) {
+    this.#menus.push(new Menu(menuName, menuQuantity));
+  }
+
+  clearMenus() {
+    this.#menus = [];
   }
 }
 
