@@ -20,6 +20,7 @@ class EventPlannerController {
   async run() {
     await this.repeatUntilSuccess(() => this.#readDate());
     await this.repeatUntilSuccess(() => this.#readMenus());
+    this.#addEvents();
   }
 
   // 에러가 발생하면 targetFunction을 다시 실행시키는 메서드
@@ -38,13 +39,17 @@ class EventPlannerController {
 
   async #readDate() {
     const date = await this.#inputView.readDate();
-    this.#service.makeEvent(date);
+    this.#service.makeOrder(date);
   }
 
   async #readMenus() {
     this.#service.clearMenus();
     const menus = await this.#inputView.readMenus();
     this.#service.addMenus(menus);
+  }
+
+  #addEvents() {
+    this.#service.addEvents();
   }
 }
 

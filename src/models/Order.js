@@ -1,4 +1,6 @@
-import InputValidator from '../validator/InputValidator.js';
+import EventValidator from '../validators/EventValidator.js';
+import InputValidator from '../validators/InputValidator.js';
+import ChristmasDiscount from './ChristmasDiscount.js';
 import Menu from './Menu.js';
 
 class Order {
@@ -6,10 +8,13 @@ class Order {
 
   #menus;
 
+  #events;
+
   constructor(date) {
     this.#validate(date);
     this.#date = date;
     this.#menus = [];
+    this.#events = [];
   }
 
   #validate(date) {
@@ -27,6 +32,12 @@ class Order {
 
   getMenus() {
     return this.#menus;
+  }
+
+  addChristmasDiscount() {
+    if (EventValidator.isValidChristmasDiscount(this.#date)) {
+      this.#events.push(new ChristmasDiscount(this.#date));
+    }
   }
 }
 

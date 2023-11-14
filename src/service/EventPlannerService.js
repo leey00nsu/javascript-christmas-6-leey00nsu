@@ -1,11 +1,11 @@
 import Order from '../models/Order.js';
 import parseMenus from '../utils/parseMenus.js';
-import InputValidator from '../validator/InputValidator.js';
+import InputValidator from '../validators/InputValidator.js';
 
 class EventPlannerService {
   #order;
 
-  makeEvent(date) {
+  makeOrder(date) {
     this.#order = new Order(date);
   }
 
@@ -27,6 +27,10 @@ class EventPlannerService {
 
   clearMenus() {
     this.#order.clearMenus();
+  }
+
+  addEvents() {
+    this.#order.addChristmasDiscount();
   }
 }
 
