@@ -1,9 +1,11 @@
 import OPTION from '../constants/option.js';
+import DiscountEvent from './DiscountEvent.js';
 
-class SpecialDiscount {
+class SpecialDiscount extends DiscountEvent {
   #discount;
 
   constructor() {
+    super();
     this.#discount = OPTION.event.specialDiscount;
   }
 

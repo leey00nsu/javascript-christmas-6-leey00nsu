@@ -1,7 +1,10 @@
-class WeekdayDiscount {
+import DiscountEvent from './DiscountEvent.js';
+
+class WeekdayDiscount extends DiscountEvent {
   #discount;
 
   constructor(menus) {
+    super();
     this.#discount = WeekdayDiscount.calculateDiscount(menus);
   }
 

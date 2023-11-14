@@ -35,7 +35,8 @@ class EventPlannerService {
     this.#order.addWeekendDiscount();
     this.#order.addSpecialDiscount();
     this.#order.addFreeGift();
-    this.#order.getDiscount();
+    this.#order.addBadge();
+    this.#order.consoleAll();
   }
 }
 

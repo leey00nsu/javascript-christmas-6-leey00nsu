@@ -1,6 +1,8 @@
 import EventValidator from '../validators/EventValidator.js';
 import InputValidator from '../validators/InputValidator.js';
+import Badge from './Badge.js';
 import ChristmasDiscount from './ChristmasDiscount.js';
+import DiscountEvent from './DiscountEvent.js';
 import FreeGift from './FreeGift.js';
 import Menu from './Menu.js';
 import SpecialDiscount from './SpecialDiscount.js';
@@ -13,6 +15,8 @@ class Order {
   #menus;
 
   #events;
+
+  #badge;
 
   constructor(date) {
     this.#validate(date);
@@ -68,10 +72,27 @@ class Order {
     }
   }
 
+  addBadge() {
+    this.#badge = new Badge(this.getTotalDiscount());
+  }
+
+  getTotalBenefit() {
+    let totalBenefit = 0;
+    this.#events.forEach((event) => {
+      if (event instanceof FreeGift) {
+        totalBenefit += event.getBenefit();
+      }
+    });
+
+    return totalBenefit + this.getTotalDiscount();
+  }
+
   getTotalDiscount() {
     let totalDiscount = 0;
     this.#events.forEach((event) => {
-      totalDiscount += event.getDiscount();
+      if (event instanceof DiscountEvent) {
+        totalDiscount += event.getDiscount();
+      }
     });
 
     return totalDiscount;
@@ -89,6 +110,14 @@ class Order {
 
   getEstimatedPrice() {
     return this.getTotalPrice() - this.getTotalDiscount();
+  }
+
+  consoleAll() {
+    console.log(this.getTotalPrice());
+    console.log(this.getTotalDiscount());
+    console.log(this.getTotalBenefit());
+    console.log(this.getEstimatedPrice());
+    console.log(this.#badge);
   }
 }
 

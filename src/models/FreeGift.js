@@ -12,7 +12,7 @@ class FreeGift {
     return this.#gift;
   }
 
-  getDiscount() {
+  getBenefit() {
     return this.#gift.getTotalPrice();
   }
 }
