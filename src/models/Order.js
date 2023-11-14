@@ -86,6 +86,10 @@ class Order {
 
     return totalPrice;
   }
+
+  getEstimatedPrice() {
+    return this.getTotalPrice() - this.getTotalDiscount();
+  }
 }
 
 export default Order;
