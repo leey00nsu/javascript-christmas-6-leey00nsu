@@ -15,6 +15,15 @@ class EventValidator {
 
     return OPTION.event.weekday.includes(today);
   }
+
+  static isValidWeekendDiscount(date) {
+    const dayIndex = new Date(
+      `${OPTION.event.eventYear}-${OPTION.event.eventMonth}-${date}`,
+    ).getDay();
+    const today = OPTION.event.week[dayIndex];
+
+    return OPTION.event.weekend.includes(today);
+  }
 }
 
 export default EventValidator;

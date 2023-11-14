@@ -26,6 +26,14 @@ class Menu {
     return 0;
   }
 
+  calculateWeekendDiscount() {
+    if (this.isSameCategory(OPTION.event.weekendDiscountTarget)) {
+      return OPTION.event.weekendDiscountIncrease * this.#quantity;
+    }
+
+    return 0;
+  }
+
   isSameCategory(category) {
     return getCategoryByName(this.#name) === category;
   }
