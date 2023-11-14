@@ -1,6 +1,7 @@
 import EventValidator from '../validators/EventValidator.js';
 import InputValidator from '../validators/InputValidator.js';
 import ChristmasDiscount from './ChristmasDiscount.js';
+import FreeGift from './FreeGift.js';
 import Menu from './Menu.js';
 import SpecialDiscount from './SpecialDiscount.js';
 import WeekdayDiscount from './WeekdayDiscount.js';
@@ -61,10 +62,28 @@ class Order {
     }
   }
 
+  addFreeGift() {
+    if (EventValidator.isValidFreeGift(this.getTotalPrice())) {
+      this.#events.push(new FreeGift());
+    }
+  }
+
   getDiscount() {
     this.#events.forEach((event) => {
-      console.log(event.getDiscount());
+      console.log(event, event.getDiscount());
     });
+  }
+
+  getTotalPrice() {
+    let totalPrice = 0;
+
+    this.#menus.forEach((menu) => {
+      totalPrice += menu.getTotalPrice();
+    });
+
+    console.log(totalPrice);
+
+    return totalPrice;
   }
 }
 

@@ -34,6 +34,7 @@ class EventPlannerService {
     this.#order.addWeekdayDiscount();
     this.#order.addWeekendDiscount();
     this.#order.addSpecialDiscount();
+    this.#order.addFreeGift();
     this.#order.getDiscount();
   }
 }

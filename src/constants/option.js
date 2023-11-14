@@ -14,6 +14,9 @@ const event = Object.freeze({
   weekendDiscountTarget: '메인',
   weekendDiscountIncrease: 2023,
   specialDiscount: 1000,
+  freeGiftStandard: 120000,
+  freeGift: '샴페인',
+  freeGiftQuantity: 1,
 });
 
 const input = Object.freeze({

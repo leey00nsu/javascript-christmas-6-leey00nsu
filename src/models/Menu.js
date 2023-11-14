@@ -1,5 +1,6 @@
 import OPTION from '../constants/option.js';
 import getCategoryByName from '../utils/getCategoryByName.js';
+import getPriceByName from '../utils/getPriceByName.js';
 import InputValidator from '../validators/InputValidator.js';
 
 class Menu {
@@ -36,6 +37,10 @@ class Menu {
 
   isSameCategory(category) {
     return getCategoryByName(this.#name) === category;
+  }
+
+  getTotalPrice() {
+    return getPriceByName(this.#name) * this.#quantity;
   }
 }
 

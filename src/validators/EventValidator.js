@@ -28,6 +28,10 @@ class EventValidator {
   static isValidSpecialDiscount(date) {
     return OPTION.event.specialDate.includes(date);
   }
+
+  static isValidFreeGift(totalPrice) {
+    return totalPrice >= OPTION.event.freeGiftStandard;
+  }
 }
 
 export default EventValidator;
