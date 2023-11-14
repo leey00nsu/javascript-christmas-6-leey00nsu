@@ -10,7 +10,8 @@ class ChristmasDiscount {
   static calculateDiscount(date) {
     return (
       OPTION.event.minChristmasDiscount +
-      (date - OPTION.event.christmasTo) * OPTION.event.christmasDiscountIncrease
+      (date - OPTION.event.christmasFrom) *
+        OPTION.event.christmasDiscountIncrease
     );
   }
 
