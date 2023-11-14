@@ -1,7 +1,7 @@
 import InputValidator from '../validator/InputValidator.js';
 import Menu from './Menu.js';
 
-class VisitEvent {
+class Order {
   #date;
 
   #menus;
@@ -24,6 +24,10 @@ class VisitEvent {
   clearMenus() {
     this.#menus = [];
   }
+
+  getMenus() {
+    return this.#menus;
+  }
 }
 
-export default VisitEvent;
+export default Order;

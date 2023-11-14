@@ -1,7 +1,7 @@
 import MENUS from '../constants/menus.js';
 import OPTION from '../constants/option.js';
 import InputError from '../error/InputError.js';
-import getCategoryByName from '../util/getCategoryByName.js';
+import getCategoryByName from '../utils/getCategoryByName.js';
 
 class InputValidator {
   static validate(condition, errorMessage) {

@@ -1,12 +1,12 @@
-import VisitEvent from '../models/VisitEvent.js';
-import parseMenus from '../util/parseMenus.js';
+import Order from '../models/Order.js';
+import parseMenus from '../utils/parseMenus.js';
 import InputValidator from '../validator/InputValidator.js';
 
 class EventPlannerService {
-  #event;
+  #order;
 
   makeEvent(date) {
-    this.#event = new VisitEvent(date);
+    this.#order = new Order(date);
   }
 
   addMenus(menus) {
@@ -17,12 +17,16 @@ class EventPlannerService {
 
     parsedMenus.forEach((menu) => {
       const [menuName, menuQuantity] = menu;
-      this.#event.addMenu(menuName, menuQuantity);
+      this.#order.addMenu(menuName, menuQuantity);
     });
   }
 
+  getMenus() {
+    return this.#order.getMenus();
+  }
+
   clearMenus() {
-    this.#event.clearMenus();
+    this.#order.clearMenus();
   }
 }
 
