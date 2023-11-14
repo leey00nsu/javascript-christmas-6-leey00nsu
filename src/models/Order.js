@@ -68,10 +68,13 @@ class Order {
     }
   }
 
-  getDiscount() {
+  getTotalDiscount() {
+    let totalDiscount = 0;
     this.#events.forEach((event) => {
-      console.log(event, event.getDiscount());
+      totalDiscount += event.getDiscount();
     });
+
+    return totalDiscount;
   }
 
   getTotalPrice() {
@@ -80,8 +83,6 @@ class Order {
     this.#menus.forEach((menu) => {
       totalPrice += menu.getTotalPrice();
     });
-
-    console.log(totalPrice);
 
     return totalPrice;
   }
