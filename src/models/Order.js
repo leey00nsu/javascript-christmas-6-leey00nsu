@@ -2,6 +2,7 @@ import EventValidator from '../validators/EventValidator.js';
 import InputValidator from '../validators/InputValidator.js';
 import ChristmasDiscount from './ChristmasDiscount.js';
 import Menu from './Menu.js';
+import SpecialDiscount from './SpecialDiscount.js';
 import WeekdayDiscount from './WeekdayDiscount.js';
 import WeekendDiscount from './WeekendDiscount.js';
 
@@ -54,9 +55,15 @@ class Order {
     }
   }
 
+  addSpecialDiscount() {
+    if (EventValidator.isValidSpecialDiscount(this.#date)) {
+      this.#events.push(new SpecialDiscount());
+    }
+  }
+
   getDiscount() {
     this.#events.forEach((event) => {
-      event.getDiscount();
+      console.log(event.getDiscount());
     });
   }
 }

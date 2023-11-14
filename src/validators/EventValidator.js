@@ -24,6 +24,10 @@ class EventValidator {
 
     return OPTION.event.weekend.includes(today);
   }
+
+  static isValidSpecialDiscount(date) {
+    return OPTION.event.specialDate.includes(date);
+  }
 }
 
 export default EventValidator;

@@ -33,6 +33,8 @@ class EventPlannerService {
     this.#order.addChristmasDiscount();
     this.#order.addWeekdayDiscount();
     this.#order.addWeekendDiscount();
+    this.#order.addSpecialDiscount();
+    this.#order.getDiscount();
   }
 }
 

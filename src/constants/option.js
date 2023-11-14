@@ -4,6 +4,7 @@ const event = Object.freeze({
   week: ['일', '월', '화', '수', '목', '금', '토'],
   weekday: ['일', '월', '화', '수', '목'],
   weekend: ['금', '토'],
+  specialDate: [3, 10, 17, 24, 25, 31],
   christmasFrom: 1,
   christmasTo: 25,
   minChristmasDiscount: 1000,
@@ -12,6 +13,7 @@ const event = Object.freeze({
   weekdayDiscountIncrease: 2023,
   weekendDiscountTarget: '메인',
   weekendDiscountIncrease: 2023,
+  specialDiscount: 1000,
 });
 
 const input = Object.freeze({
