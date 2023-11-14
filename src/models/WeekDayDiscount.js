@@ -1,16 +1,14 @@
-import OPTION from '../constants/option.js';
-
-class WeekDayDiscount {
+class WeekdayDiscount {
   #discount;
 
   constructor(menus) {
-    this.#discount = WeekDayDiscount.calculateDiscount(menus);
+    this.#discount = WeekdayDiscount.calculateDiscount(menus);
   }
 
   static calculateDiscount(menus) {
     let discount = 0;
     menus.forEach((menu) => {
-      discount += menu.calculateWeekDayDiscount();
+      discount += menu.calculateWeekdayDiscount();
     });
 
     return discount;
@@ -21,4 +19,4 @@ class WeekDayDiscount {
   }
 }
 
-export default WeekDayDiscount;
+export default WeekdayDiscount;

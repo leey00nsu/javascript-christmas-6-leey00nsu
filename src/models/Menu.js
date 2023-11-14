@@ -18,9 +18,9 @@ class Menu {
     InputValidator.isQuantityInRange(quantity);
   }
 
-  calculateWeekDayDiscount() {
-    if (this.isSameCategory(OPTION.event.weekDayDiscountTarget)) {
-      return OPTION.event.weekDayDiscountIncrease * this.#quantity;
+  calculateWeekdayDiscount() {
+    if (this.isSameCategory(OPTION.event.weekdayDiscountTarget)) {
+      return OPTION.event.weekdayDiscountIncrease * this.#quantity;
     }
 
     return 0;

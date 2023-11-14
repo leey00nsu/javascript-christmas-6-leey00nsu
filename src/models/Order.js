@@ -2,7 +2,7 @@ import EventValidator from '../validators/EventValidator.js';
 import InputValidator from '../validators/InputValidator.js';
 import ChristmasDiscount from './ChristmasDiscount.js';
 import Menu from './Menu.js';
-import WeekDayDiscount from './WeekDayDiscount.js';
+import WeekdayDiscount from './WeekdayDiscount.js';
 
 class Order {
   #date;
@@ -42,14 +42,14 @@ class Order {
   }
 
   addWeekDayDiscount() {
-    if (EventValidator.isValidWeekDayDiscount(this.#date)) {
-      this.#events.push(new WeekDayDiscount(this.#menus));
+    if (EventValidator.isValidWeekdayDiscount(this.#date)) {
+      this.#events.push(new WeekdayDiscount(this.#menus));
     }
   }
 
   getDiscount() {
     this.#events.forEach((event) => {
-      console.log(event.getDiscount());
+      event.getDiscount();
     });
   }
 }

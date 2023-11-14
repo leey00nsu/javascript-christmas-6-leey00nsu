@@ -7,13 +7,13 @@ class EventValidator {
     );
   }
 
-  static isValidWeekDayDiscount(date) {
+  static isValidWeekdayDiscount(date) {
     const dayIndex = new Date(
       `${OPTION.event.eventYear}-${OPTION.event.eventMonth}-${date}`,
     ).getDay();
     const today = OPTION.event.week[dayIndex];
 
-    return OPTION.event.weekDay.includes(today);
+    return OPTION.event.weekday.includes(today);
   }
 }
 
