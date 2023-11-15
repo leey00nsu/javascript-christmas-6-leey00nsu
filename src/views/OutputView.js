@@ -54,6 +54,16 @@ const OutputView = {
       Console.print(`${description}: -${addDigitComma(discount)}원`);
     });
   },
+
+  printTotalBenefit(totalBenefit) {
+    Console.print('<총혜택 금액>');
+    if (totalBenefit === 0) {
+      Console.print('0원');
+    }
+    if (totalBenefit > 0) {
+      Console.print(`-${addDigitComma(totalBenefit)}원`);
+    }
+  },
 };
 
 export default OutputView;
