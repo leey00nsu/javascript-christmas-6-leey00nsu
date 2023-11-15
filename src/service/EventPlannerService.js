@@ -57,7 +57,7 @@ class EventPlannerService {
   }
 
   getTotalDiscount() {
-    return this.#order.getTotalBenefit();
+    return this.#order.getTotalDiscount();
   }
 
   getTotalPrice() {
