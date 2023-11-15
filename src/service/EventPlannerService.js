@@ -26,6 +26,10 @@ class EventPlannerService {
     return this.#order.getMenus();
   }
 
+  getBadge() {
+    return this.#order.getBadge();
+  }
+
   clearMenus() {
     this.#order.clearMenus();
   }
@@ -36,6 +40,22 @@ class EventPlannerService {
     validEvents.forEach((event) => {
       this.#order.addEvent(event);
     });
+  }
+
+  addBadge() {
+    this.#order.addBadge();
+  }
+
+  getTotalBenefit() {
+    return this.#order.getTotalBenefit();
+  }
+
+  getTotalDiscount() {
+    return this.#order.getTotalBenefit();
+  }
+
+  getTotalPrice() {
+    return this.#order.getTotalPrice();
   }
 }
 

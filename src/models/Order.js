@@ -41,6 +41,10 @@ class Order {
     return this.#menus;
   }
 
+  getBadge() {
+    return this.#badge.getBadge();
+  }
+
   addEvent(event) {
     this.#events.push(event);
   }

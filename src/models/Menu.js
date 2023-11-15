@@ -19,6 +19,10 @@ class Menu {
     InputValidator.isQuantityInRange(quantity);
   }
 
+  getMenu() {
+    return [this.#name, this.#quantity];
+  }
+
   calculateWeekdayDiscount() {
     if (this.isSameCategory(OPTION.event.weekdayDiscountTarget)) {
       return OPTION.event.weekdayDiscountIncrease * this.#quantity;
