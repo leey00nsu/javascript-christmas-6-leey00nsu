@@ -57,11 +57,22 @@ class Order {
     let totalBenefit = 0;
     this.#events.forEach((event) => {
       if (event instanceof FreeGift) {
-        totalBenefit += event.getBenefit();
+        totalBenefit += event.getTotalPrice();
       }
     });
 
     return totalBenefit + this.getTotalDiscount();
+  }
+
+  getFreeGifts() {
+    const freeGifts = [];
+    this.#events.forEach((event) => {
+      if (event instanceof FreeGift) {
+        freeGifts.push(event);
+      }
+    });
+
+    return freeGifts;
   }
 
   getTotalDiscount() {

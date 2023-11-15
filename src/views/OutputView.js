@@ -32,6 +32,17 @@ const OutputView = {
     Console.print('<할인 전 총주문 금액>');
     Console.print(`${addDigitComma(totalPrice)}원`);
   },
+
+  printFreeGifts(freeGifts) {
+    Console.print('<증정 메뉴>');
+    if (freeGifts.length === 0) {
+      Console.print('없음');
+    }
+    freeGifts.forEach((freeGift) => {
+      const [name, quantity] = freeGift;
+      Console.print(`${name} ${quantity}개`);
+    });
+  },
 };
 
 export default OutputView;

@@ -61,6 +61,10 @@ class EventPlannerService {
   getTotalPrice() {
     return this.#order.getTotalPrice();
   }
+
+  getFreeGifts() {
+    return this.#order.getFreeGifts().map((gifts) => gifts.getMenu());
+  }
 }
 
 export default EventPlannerService;

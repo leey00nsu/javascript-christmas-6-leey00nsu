@@ -1,19 +1,9 @@
 import OPTION from '../../constants/option.js';
 import Menu from '../Menu.js';
 
-class FreeGift {
-  #gift;
-
+class FreeGift extends Menu {
   constructor() {
-    this.#gift = new Menu(OPTION.event.freeGift, OPTION.event.freeGiftQuantity);
-  }
-
-  getGift() {
-    return this.#gift;
-  }
-
-  getBenefit() {
-    return this.#gift.getTotalPrice();
+    super(OPTION.event.freeGift, OPTION.event.freeGiftQuantity);
   }
 }
 
