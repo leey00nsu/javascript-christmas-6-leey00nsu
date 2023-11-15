@@ -1,4 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
+import addDigitComma from '../utils/addDigitComma.js';
 
 const OutputView = {
   print(query) {
@@ -25,6 +26,11 @@ const OutputView = {
       const [name, quantity] = orderMenu;
       Console.print(`${name} ${quantity}개`);
     });
+  },
+
+  printTotalPrice(totalPrice) {
+    Console.print('<할인 전 총주문 금액>');
+    Console.print(`${addDigitComma(totalPrice)}원`);
   },
 };
 

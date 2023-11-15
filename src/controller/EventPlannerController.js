@@ -22,6 +22,8 @@ class EventPlannerController {
     await this.repeatUntilSuccess(() => this.#readMenus());
     this.#calculateEvent();
     this.#printEventPreview();
+    this.#printOrderMenus();
+    this.#printTotalPrice();
   }
 
   // 에러가 발생하면 targetFunction을 다시 실행시키는 메서드
@@ -58,9 +60,18 @@ class EventPlannerController {
     const date = this.#service.getDate();
     this.#outputView.printEventPreviw(date);
     this.#outputView.printNewLine();
+  }
 
+  #printOrderMenus() {
     const orderMenus = this.#service.getMenus();
     this.#outputView.printOrderMenus(orderMenus);
+    this.#outputView.printNewLine();
+  }
+
+  #printTotalPrice() {
+    const totalPrice = this.#service.getTotalPrice();
+    this.#outputView.printTotalPrice(totalPrice);
+    this.#outputView.printNewLine();
   }
 }
 
