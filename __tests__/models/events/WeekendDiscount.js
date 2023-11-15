@@ -2,7 +2,7 @@ import Menu from '../../../src/models/Menu';
 import WeekendDiscount from '../../../src/models/events/WeekendDiscount';
 
 describe('WeekendDiscount 클래스 테스트', () => {
-  test('주말에는 메인 카테고리 메뉴를 메뉴 1개당 2023원 할인한다.', () => {
+  test('주말에는 메인 카테고리 메뉴를 메뉴 1개당 2023원으로 할인한다.', () => {
     const menus = [new Menu('티본스테이크', 1)];
 
     expect(WeekendDiscount.calculateDiscount(menus)).toBe(2023);
