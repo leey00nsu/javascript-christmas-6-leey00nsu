@@ -22,6 +22,10 @@ class EventPlannerService {
     });
   }
 
+  getDate() {
+    return this.#order.getDate();
+  }
+
   getMenus() {
     return this.#order.getMenus();
   }

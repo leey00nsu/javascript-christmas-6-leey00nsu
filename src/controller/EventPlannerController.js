@@ -21,6 +21,7 @@ class EventPlannerController {
     await this.repeatUntilSuccess(() => this.#readDate());
     await this.repeatUntilSuccess(() => this.#readMenus());
     this.#calculateEvent();
+    this.#printEventPreview();
   }
 
   // 에러가 발생하면 targetFunction을 다시 실행시키는 메서드
@@ -51,6 +52,11 @@ class EventPlannerController {
   #calculateEvent() {
     this.#service.addEvents();
     this.#service.addBadge();
+  }
+
+  #printEventPreview() {
+    const date = this.#service.getDate();
+    this.#outputView.printEventPreviw(date);
   }
 }
 
