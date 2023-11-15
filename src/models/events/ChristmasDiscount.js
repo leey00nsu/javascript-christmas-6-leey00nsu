@@ -4,12 +4,9 @@ import DiscountEvent from './DiscountEvent.js';
 class ChristmasDiscount extends DiscountEvent {
   #discount;
 
-  #type;
-
   constructor(date) {
     super();
     this.#discount = ChristmasDiscount.calculateDiscount(date);
-    this.#type = OPTION.event.discount;
   }
 
   static calculateDiscount(date) {
