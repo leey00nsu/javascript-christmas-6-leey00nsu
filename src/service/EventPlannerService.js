@@ -69,6 +69,10 @@ class EventPlannerService {
   getBenefits() {
     return this.#order.getBenefits();
   }
+
+  getEstimatedPrice() {
+    return this.#order.getEstimatedPrice();
+  }
 }
 
 export default EventPlannerService;

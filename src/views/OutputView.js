@@ -64,6 +64,11 @@ const OutputView = {
       Console.print(`-${addDigitComma(totalBenefit)}원`);
     }
   },
+
+  printEstimatedPrice(estimatedPrice) {
+    Console.print('<할인 후 예상 결제 금액>');
+    Console.print(`${addDigitComma(estimatedPrice)}원`);
+  },
 };
 
 export default OutputView;

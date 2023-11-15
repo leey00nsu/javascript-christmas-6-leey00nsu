@@ -27,6 +27,7 @@ class EventPlannerController {
     this.#printFreeGifts();
     this.#printBenefits();
     this.#printTotalBenefit();
+    this.#printEstimatedPrice();
   }
 
   // 에러가 발생하면 targetFunction을 다시 실행시키는 메서드
@@ -92,6 +93,12 @@ class EventPlannerController {
   #printTotalBenefit() {
     const totalBenefit = this.#service.getTotalBenefit();
     this.#outputView.printTotalBenefit(totalBenefit);
+    this.#outputView.printNewLine();
+  }
+
+  #printEstimatedPrice() {
+    const estimatedPrice = this.#service.getEstimatedPrice();
+    this.#outputView.printEstimatedPrice(estimatedPrice);
     this.#outputView.printNewLine();
   }
 }
