@@ -1,4 +1,4 @@
-import InputValidator from '../../src/validator/InputValidator';
+import InputValidator from '../../src/validators/InputValidator';
 
 describe('InputValidator 테스트', () => {
   test('날짜가 정수가 아니면 예외를 발생시킨다', () => {
