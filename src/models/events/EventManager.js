@@ -1,6 +1,6 @@
 import EventValidator from '../../validators/EventValidator.js';
 import ChristmasDiscount from './ChristmasDiscount.js';
-import WeekdayDiscount from './WeekDayDiscount.js';
+import WeekdayDiscount from './WeekdayDiscount.js';
 import WeekendDiscount from './WeekendDiscount.js';
 import SpecialDiscount from './SpecialDiscount.js';
 import FreeGift from './FreeGift.js';
