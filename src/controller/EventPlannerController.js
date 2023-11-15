@@ -57,6 +57,10 @@ class EventPlannerController {
   #printEventPreview() {
     const date = this.#service.getDate();
     this.#outputView.printEventPreviw(date);
+    this.#outputView.printNewLine();
+
+    const orderMenus = this.#service.getMenus();
+    this.#outputView.printOrderMenus(orderMenus);
   }
 }
 

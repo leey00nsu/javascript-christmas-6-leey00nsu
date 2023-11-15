@@ -27,7 +27,7 @@ class EventPlannerService {
   }
 
   getMenus() {
-    return this.#order.getMenus();
+    return this.#order.getMenus().map((menu) => menu.getMenu());
   }
 
   getBadge() {
