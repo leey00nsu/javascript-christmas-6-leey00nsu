@@ -43,6 +43,17 @@ const OutputView = {
       Console.print(`${name} ${quantity}개`);
     });
   },
+
+  printBenefits(benefits) {
+    Console.print('<혜택 내역>');
+    if (benefits.length === 0) {
+      Console.print('없음');
+    }
+    benefits.forEach((benefit) => {
+      const [description, discount] = benefit;
+      Console.print(`${description}: -${addDigitComma(discount)}원`);
+    });
+  },
 };
 
 export default OutputView;

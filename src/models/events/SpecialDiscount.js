@@ -4,13 +4,16 @@ import DiscountEvent from './DiscountEvent.js';
 class SpecialDiscount extends DiscountEvent {
   #discount;
 
+  #description;
+
   constructor() {
     super();
     this.#discount = OPTION.event.specialDiscount;
+    this.#description = '특별 할인';
   }
 
   getDiscount() {
-    return this.#discount;
+    return [this.#description, this.#discount];
   }
 }
 

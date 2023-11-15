@@ -3,9 +3,12 @@ import DiscountEvent from './DiscountEvent.js';
 class WeekendDiscount extends DiscountEvent {
   #discount;
 
+  #description;
+
   constructor(menus) {
     super();
     this.#discount = WeekendDiscount.calculateDiscount(menus);
+    this.#description = '주말 할인';
   }
 
   static calculateDiscount(menus) {
@@ -18,7 +21,7 @@ class WeekendDiscount extends DiscountEvent {
   }
 
   getDiscount() {
-    return this.#discount;
+    return [this.#description, this.#discount];
   }
 }
 

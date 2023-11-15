@@ -64,6 +64,15 @@ class Order {
     return totalBenefit + this.getTotalDiscount();
   }
 
+  getBenefits() {
+    const benefits = [];
+    this.#events.forEach((event) => {
+      benefits.push(event.getDiscount());
+    });
+
+    return benefits;
+  }
+
   getFreeGifts() {
     const freeGifts = [];
     this.#events.forEach((event) => {
@@ -79,7 +88,8 @@ class Order {
     let totalDiscount = 0;
     this.#events.forEach((event) => {
       if (event instanceof DiscountEvent) {
-        totalDiscount += event.getDiscount();
+        const [, discount] = event.getDiscount();
+        totalDiscount += discount;
       }
     });
 
