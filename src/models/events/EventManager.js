@@ -1,9 +1,10 @@
 import EventValidator from '../../validators/EventValidator.js';
 import ChristmasDiscount from './ChristmasDiscount.js';
-import WeekdayDiscount from '../WeekDayDiscount.js';
+import WeekdayDiscount from './WeekDayDiscount.js';
 import WeekendDiscount from './WeekendDiscount.js';
 import SpecialDiscount from './SpecialDiscount.js';
 import FreeGift from './FreeGift.js';
+import OPTION from '../../constants/option.js';
 
 class EventManager {
   static addChristmasDiscount(date) {
@@ -51,6 +52,7 @@ class EventManager {
     const date = Order.getDate();
     const menus = Order.getMenus();
     const totalPrice = Order.getTotalPrice();
+    if (totalPrice < OPTION.event.minTotalPriceStandard) return [];
 
     validEvents.push(EventManager.addChristmasDiscount(date));
     validEvents.push(EventManager.addWeekdayDiscount(date, menus));

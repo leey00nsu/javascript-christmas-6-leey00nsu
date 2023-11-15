@@ -7,6 +7,7 @@ const event = Object.freeze({
   specialDate: [3, 10, 17, 24, 25, 31],
   christmasFrom: 1,
   christmasTo: 25,
+  minTotalPriceStandard: 10000,
   minChristmasDiscount: 1000,
   christmasDiscountIncrease: 100,
   weekdayDiscountTarget: '디저트',

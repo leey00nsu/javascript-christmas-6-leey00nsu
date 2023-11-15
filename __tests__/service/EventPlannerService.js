@@ -5,14 +5,14 @@ describe('EventPlannerService 클래스 테스트', () => {
 
   beforeEach(() => {
     eventPlannerService = new EventPlannerService();
-    eventPlannerService.makeEvent(1);
+    eventPlannerService.makeOrder(1);
   });
 
-  test('이벤트를 만들 수 있다.', () => {
+  test('주문을 만들 수 있다.', () => {
     expect(eventPlannerService.getMenus()).toHaveLength(0);
   });
 
-  test('메뉴들을 추가할 수 있다.', () => {
+  test('주문에 메뉴들을 추가할 수 있다.', () => {
     const inputs = ['아이스크림-1', '제로콜라-1'];
 
     eventPlannerService.addMenus(inputs);
@@ -42,4 +42,6 @@ describe('EventPlannerService 클래스 테스트', () => {
 
     expect(() => eventPlannerService.addMenus(inputs)).toThrow('[ERROR]');
   });
+
+
 });

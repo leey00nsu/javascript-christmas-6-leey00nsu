@@ -1,4 +1,5 @@
 import Order from '../../src/models/Order.js';
+import EventManager from '../../src/models/events/EventManager.js';
 
 describe('Order 클래스 테스트', () => {
   let order;
@@ -16,7 +17,7 @@ describe('Order 클래스 테스트', () => {
   });
 
   test('메뉴를 추가할 수 있다.', () => {
-    order.addMenu('제로콜라', 1);
+    order.addMenu('아이스크림', 1);
 
     expect(order.getMenus()).toHaveLength(1);
   });
@@ -29,5 +30,11 @@ describe('Order 클래스 테스트', () => {
     order.clearMenus();
 
     expect(order.getMenus()).toHaveLength(0);
+  });
+
+  test('총 주문 금액이 10,000원 미만이면 이벤트를 적용하지 않는다', () => {
+    order.addMenu('시저샐러드', 1);
+
+    expect(EventManager.getValidEvents(order)).toHaveLength(0);
   });
 });
