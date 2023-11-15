@@ -18,8 +18,8 @@ const event = Object.freeze({
   freeGiftStandard: 120000,
   freeGift: '샴페인',
   freeGiftQuantity: 1,
-  badges: ['없음', '별', '트리', '산타'],
-  badgeStandards: [0, 5000, 10000, 20000],
+  badges: ['별', '트리', '산타'],
+  badgeStandards: [5000, 10000, 20000],
 });
 
 const input = Object.freeze({

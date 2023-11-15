@@ -47,7 +47,9 @@ class EventPlannerService {
   }
 
   addBadge() {
-    this.#order.addBadge();
+    if (EventManager.isValidAttend(this.getTotalPrice())) {
+      this.#order.addBadge();
+    }
   }
 
   getTotalBenefit() {

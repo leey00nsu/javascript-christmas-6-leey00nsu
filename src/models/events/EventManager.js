@@ -52,7 +52,7 @@ class EventManager {
     const date = Order.getDate();
     const menus = Order.getMenus();
     const totalPrice = Order.getTotalPrice();
-    if (totalPrice < OPTION.event.minTotalPriceStandard) return [];
+    if (!EventManager.isValidAttend(totalPrice)) return [];
 
     validEvents.push(EventManager.addChristmasDiscount(date));
     validEvents.push(EventManager.addWeekdayDiscount(date, menus));
@@ -61,6 +61,10 @@ class EventManager {
     validEvents.push(EventManager.addFreeGift(totalPrice));
 
     return validEvents.filter((event) => event !== null);
+  }
+
+  static isValidAttend(totalPrice) {
+    return totalPrice >= OPTION.event.minTotalPriceStandard;
   }
 }
 

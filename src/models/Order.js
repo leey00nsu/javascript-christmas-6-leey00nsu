@@ -42,7 +42,7 @@ class Order {
   }
 
   getBadge() {
-    return this.#badge.getBadge();
+    return this.#badge?.getBadge();
   }
 
   addEvent(event) {
@@ -50,7 +50,7 @@ class Order {
   }
 
   addBadge() {
-    this.#badge = new Badge(this.getTotalDiscount());
+    this.#badge = new Badge(this.getTotalBenefit());
   }
 
   getTotalBenefit() {

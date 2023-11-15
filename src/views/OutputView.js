@@ -69,6 +69,16 @@ const OutputView = {
     Console.print('<할인 후 예상 결제 금액>');
     Console.print(`${addDigitComma(estimatedPrice)}원`);
   },
+
+  printBadge(badge) {
+    Console.print('<12월 이벤트 배지>');
+    if (!badge) {
+      Console.print('없음');
+    }
+    if (badge) {
+      Console.print(badge);
+    }
+  },
 };
 
 export default OutputView;
