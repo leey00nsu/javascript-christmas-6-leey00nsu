@@ -1,3 +1,4 @@
+import EventManager from '../models/events/EventManager.js';
 import Order from '../models/Order.js';
 import parseMenus from '../utils/parseMenus.js';
 import InputValidator from '../validators/InputValidator.js';
@@ -30,13 +31,11 @@ class EventPlannerService {
   }
 
   addEvents() {
-    this.#order.addChristmasDiscount();
-    this.#order.addWeekdayDiscount();
-    this.#order.addWeekendDiscount();
-    this.#order.addSpecialDiscount();
-    this.#order.addFreeGift();
-    this.#order.addBadge();
-    this.#order.consoleAll();
+    const validEvents = EventManager.getValidEvents(this.#order);
+
+    validEvents.forEach((event) => {
+      this.#order.addEvent(event);
+    });
   }
 }
 

@@ -1,4 +1,4 @@
-import OPTION from '../constants/option.js';
+import OPTION from '../../constants/option.js';
 
 class Badge {
   #badge;

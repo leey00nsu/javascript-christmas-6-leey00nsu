@@ -1,13 +1,8 @@
-import EventValidator from '../validators/EventValidator.js';
 import InputValidator from '../validators/InputValidator.js';
-import Badge from './Badge.js';
-import ChristmasDiscount from './ChristmasDiscount.js';
-import DiscountEvent from './DiscountEvent.js';
-import FreeGift from './FreeGift.js';
+import Badge from './events/Badge.js';
+import DiscountEvent from './events/DiscountEvent.js';
+import FreeGift from './events/FreeGift.js';
 import Menu from './Menu.js';
-import SpecialDiscount from './SpecialDiscount.js';
-import WeekdayDiscount from './WeekdayDiscount.js';
-import WeekendDiscount from './WeekendDiscount.js';
 
 class Order {
   #date;
@@ -38,38 +33,16 @@ class Order {
     this.#menus = [];
   }
 
+  getDate() {
+    return this.#date;
+  }
+
   getMenus() {
     return this.#menus;
   }
 
-  addChristmasDiscount() {
-    if (EventValidator.isValidChristmasDiscount(this.#date)) {
-      this.#events.push(new ChristmasDiscount(this.#date));
-    }
-  }
-
-  addWeekdayDiscount() {
-    if (EventValidator.isValidWeekdayDiscount(this.#date)) {
-      this.#events.push(new WeekdayDiscount(this.#menus));
-    }
-  }
-
-  addWeekendDiscount() {
-    if (EventValidator.isValidWeekendDiscount(this.#date)) {
-      this.#events.push(new WeekendDiscount(this.#menus));
-    }
-  }
-
-  addSpecialDiscount() {
-    if (EventValidator.isValidSpecialDiscount(this.#date)) {
-      this.#events.push(new SpecialDiscount());
-    }
-  }
-
-  addFreeGift() {
-    if (EventValidator.isValidFreeGift(this.getTotalPrice())) {
-      this.#events.push(new FreeGift());
-    }
+  addEvent(event) {
+    this.#events.push(event);
   }
 
   addBadge() {
@@ -110,6 +83,10 @@ class Order {
 
   getEstimatedPrice() {
     return this.getTotalPrice() - this.getTotalDiscount();
+  }
+
+  isAttendEvent() {
+    return Boolean(this.#events.length);
   }
 
   consoleAll() {

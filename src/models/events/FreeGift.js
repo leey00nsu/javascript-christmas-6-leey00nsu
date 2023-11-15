@@ -1,5 +1,5 @@
-import OPTION from '../constants/option.js';
-import Menu from './Menu.js';
+import OPTION from '../../constants/option.js';
+import Menu from '../Menu.js';
 
 class FreeGift {
   #gift;
