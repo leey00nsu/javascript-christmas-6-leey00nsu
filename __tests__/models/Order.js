@@ -12,7 +12,11 @@ describe('Order 클래스 테스트', () => {
     expect(() => new Order(32)).toThrow('[ERROR]');
   });
 
-  test('초기 메뉴 목록은 비어있다.', () => {
+  test('주문 날짜를 반환할 수 있다.', () => {
+    expect(order.getDate()).toBe(1);
+  });
+
+  test('메뉴 목록을 반환할 수 있다..', () => {
     expect(order.getMenus()).toHaveLength(0);
   });
 
@@ -36,6 +40,25 @@ describe('Order 클래스 테스트', () => {
     order.addMenu('시저샐러드', 1);
 
     expect(EventManager.getValidEvents(order)).toHaveLength(0);
+  });
+
+  test('배지를 반환할 수 있다.', () => {
+    order = new Order(3);
+    order.addMenu('티본스테이크', 1); // 55000
+    order.addMenu('바비큐립', 1); // 5400
+    order.addMenu('초코케이크', 2); // 30000
+    order.addMenu('제로콜라', 1); // 3000
+
+    EventManager.getValidEvents(order).forEach((event) => {
+      order.addEvent(event);
+    });
+    order.addBadge();
+
+    expect(order.getBadge()).toBe('산타');
+  });
+
+  test('이벤트 참여 여부를 반환할 수 있다.', () => {
+    expect(order.isAttendEvent()).toBeFalsy();
   });
 
   test('총 주문 금액을 반환할 수 있다.', () => {
@@ -87,5 +110,24 @@ describe('Order 클래스 테스트', () => {
     });
 
     expect(order.getEstimatedPrice()).toBe(135754);
+  });
+
+  test('혜택 목록을 반환할 수 있다.', () => {
+    order = new Order(3);
+    order.addMenu('티본스테이크', 1); // 55000
+    order.addMenu('바비큐립', 1); // 5400
+    order.addMenu('초코케이크', 2); // 30000
+    order.addMenu('제로콜라', 1); // 3000
+
+    EventManager.getValidEvents(order).forEach((event) => {
+      order.addEvent(event);
+    });
+
+    expect(order.getBenefits()).toEqual([
+      ['크리스마스 디데이 할인', 1200],
+      ['평일 할인', 4046],
+      ['특별 할인', 1000],
+      ['증정 이벤트', 25000],
+    ]);
   });
 });
