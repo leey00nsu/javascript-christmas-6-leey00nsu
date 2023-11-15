@@ -113,14 +113,6 @@ class Order {
   isAttendEvent() {
     return Boolean(this.#events.length);
   }
-
-  consoleAll() {
-    console.log(this.getTotalPrice());
-    console.log(this.getTotalDiscount());
-    console.log(this.getTotalBenefit());
-    console.log(this.getEstimatedPrice());
-    console.log(this.#badge);
-  }
 }
 
 export default Order;
