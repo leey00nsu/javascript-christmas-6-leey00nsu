@@ -37,4 +37,40 @@ describe('Order 클래스 테스트', () => {
 
     expect(EventManager.getValidEvents(order)).toHaveLength(0);
   });
+
+  test('총 주문 금액을 반환할 수 있다.', () => {
+    order.addMenu('제로콜라', 1); // 3000
+    order.addMenu('아이스크림', 1); // 5000
+    order.addMenu('양송이수프', 1); // 6000
+
+    expect(order.getTotalPrice()).toBe(14000);
+  });
+
+  test('총 할인 금액을 반환할 수 있다.', () => {
+    order = new Order(3);
+    order.addMenu('티본스테이크', 1); // 55000
+    order.addMenu('바비큐립', 1); // 5400
+    order.addMenu('초코케이크', 2); // 30000
+    order.addMenu('제로콜라', 1); // 3000
+
+    EventManager.getValidEvents(order).forEach((event) => {
+      order.addEvent(event);
+    });
+
+    expect(order.getTotalDiscount()).toBe(6246);
+  });
+
+  test('총 혜택 금액을 반환할 수 있다.', () => {
+    order = new Order(3);
+    order.addMenu('티본스테이크', 1); // 55000
+    order.addMenu('바비큐립', 1); // 5400
+    order.addMenu('초코케이크', 2); // 30000
+    order.addMenu('제로콜라', 1); // 3000
+
+    EventManager.getValidEvents(order).forEach((event) => {
+      order.addEvent(event);
+    });
+
+    expect(order.getTotalBenefit()).toBe(31246);
+  });
 });
